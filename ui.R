@@ -102,5 +102,33 @@ ui <- bslib::page_navbar(
         plotOutput("myPlot", height = "600px")
       )
     )
+  ),
+  
+  # =====================
+  # Panel 4 — Eric
+  # =====================
+  bslib::nav_panel(
+    "Price and CO2 - Eric",
+    sidebarLayout(
+      sidebarPanel(
+        tags$h5("Industrial electricity prices (USD/MWh)"),
+        sliderInput("n_price", "Show top N cheapest states:", 5, 21, 15),
+        checkboxInput("avg_price", "Show national average price", TRUE),
+        tags$hr(),
+        tags$h5("Industrial CO2 emissions (million tons)"),
+        sliderInput("n_emiss", "Show top N emitters:", 5, 30, 15),
+        checkboxInput("avg_emiss", "Show national average emissions", TRUE),
+        tags$hr(),
+        h4("How to use this panel"),
+        p("Use the sliders to control how many states are shown in the price and emissions views."),
+        p("Toggle the national average lines on or off to see how each state compares to the U.S. mean.")
+      ),
+      mainPanel(
+        tabsetPanel(
+          tabPanel("Price 2023", plotOutput("price_plot", height = 520)),
+          tabPanel("CO2 2023",   plotOutput("emiss_plot", height = 520))
+        )
+      )
+    )
   )
 )

@@ -44,10 +44,21 @@ if (exists("server")) rm(server)
 yikai_server <- wrap_server(yikai_server_raw)
 
 # -------------------------
+# Eric
+# -------------------------
+source("eric/server.R")      # Eric's server.R with price/emissions code
+
+eric_server_raw <- if (exists("server")) server else NULL
+if (exists("server")) rm(server)
+
+eric_server <- wrap_server(eric_server_raw)
+
+# -------------------------
 # Combined group server
 # -------------------------
 server <- function(input, output, session) {
   haoquan_server(input, output, session)
   ruichen_server(input, output, session)
   yikai_server(input, output, session)
+  eric_server(input, output, session)
 }

@@ -3,41 +3,47 @@
 This repo contains our group Shiny dashboard for exploring:
 - Embodied supply-chain GHG intensity and totals by sector (Haoquan),
 - Time trends in CO2 emissions across countries (Ruichen),
-- Supply-chain GHG by gas and industry (Yikai).
+- Supply-chain GHG by gas and industry (Yikai),
+- Industrial electricity prices and industrial CO2 emissions across U.S. states (Eric).
 
 ## Repo Structure
 
-```
-final-project/
-  ui.R
-  server.R
-  haoquan/
-    ui.R
-    server.R
-    data_prep.R
-  ruichen/
-    ui.R 
-    server.R
-    data.xlsx
-  yikai/
-    ui.R
-    server.R
-    data.xlsx
-  README.md
+```text
+.
+├── eric/
+│   ├── ui.R
+│   ├── server.R
+│   ├── data_emiss.xlsx
+│   └── data_price.xlsx
+├── haoquan/
+│   ├── ui.R
+│   ├── server.R
+│   └── data_prep.R
+├── ruichen/
+│   ├── ui.R
+│   ├── server.R
+│   └── data.xlsx
+├── yikai/
+│   ├── ui.R
+│   ├── server.R
+│   └── data.xlsx
+├── .gitignore
+├── README.md
+├── server.R
+└── ui.R
 ```
 
 ## Installation
 
-First, clone this repo and move to the directory of the repo.
+First, clone this repo and move to the directory of the repo:
 ```
 git clone https://github.com/uwstat451/final-project
 cd final-project
 ```
 
-Then, install the pacakages as required.
+Then, install the pacakages as required:
 ```r
-install.packages(c("shiny","bslib","ggplot2","dplyr","forcats",
-                   "readxl","gapminder","tidyverse","scales"))
+install.packages(c("shiny","bslib","ggplot2","dplyr","forcats","readxl","gapminder","tidyverse","scales"))
 remotes::install_github("USEPA/useeior")
 ```
 
