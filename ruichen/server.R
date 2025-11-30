@@ -58,12 +58,9 @@ server <- function(input, output) {
         axis.text.x = element_text(angle = 45, hjust = 1)
       )
     
-    if (input$linear1) {
-      p <- p + geom_smooth(method = "lm", se = FALSE, color = "red")
-    }
-    
     p
   })
+  
   
   output$plot2 <- renderPlot({
     
@@ -84,6 +81,7 @@ server <- function(input, output) {
       geom_line(color = "darkgreen", size = 1) +
       geom_point(color = "darkgreen", size = 2) +
       geom_hline(yintercept = 0, linetype = "dashed", color = "gray40") +
+      annotate("text", x = 2022, y = 2, label = "2020 baseline", color = "gray30", hjust = 0) +
       labs(
         title = "Global Percent Change in Total CO2 Emissions (Relative to 2020)",
         subtitle = "Percent change in global total emissions using 2020 as baseline",
@@ -96,12 +94,6 @@ server <- function(input, output) {
         axis.text.x = element_text(angle = 45, hjust = 1)
       )
   })
-  
-  
-  
-
-  
-  
   
 
   output$plot3 <- renderPlot({
